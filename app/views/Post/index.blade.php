@@ -31,6 +31,7 @@
                         On
                         {{ $post->created_at->diffForHumans() }}
                     </p>
+                    <hr>
                 </div>
             @empty
                 <h2 style="text-align: center"> No Post Found </h2>

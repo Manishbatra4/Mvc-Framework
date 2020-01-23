@@ -27,6 +27,7 @@
 
  </p>
  </div>
+ <hr>
  <?php endforeach; if ($__empty_1): ?>
  <h2 style="text-align: center"> No Post Found </h2>
  <?php endif; ?>

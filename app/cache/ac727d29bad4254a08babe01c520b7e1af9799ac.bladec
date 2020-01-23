@@ -19,6 +19,7 @@
  <?php echo static::e($post->created_at->diffForHumans()); ?>
 
  </p>
+ <hr>
  </div>
  <?php endforeach; if ($__empty_1): ?>
  <h2 style="text-align: center"> No Post Found </h2>
