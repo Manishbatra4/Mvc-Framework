@@ -4,8 +4,7 @@
 This is a Mini Mvc Framework.
 
 IT have same functionality like laravel and codeigniter
-There is a short blog project included to explain functioning
-of framework
+I design a short blog project.
 
 It use laravel Eloquent For Database as well as Blade Template engine
 
