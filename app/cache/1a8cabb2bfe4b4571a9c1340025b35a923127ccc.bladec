@@ -1,0 +1,41 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'Login Page'); ?>
+
+<?php $this->startSection('content'); ?>
+ <div class="row mt-5">
+ <div class="col-md-8 mx-auto">
+ <div class="card card-body bg-light mt-5">
+ <h2 style="text-align: center">Login</h2>
+ <?php if(!empty($error)): ?>
+ <p style="color: red" class="form-text"><?php echo static::e($error); ?></p>
+ <?php endif; ?>
+ <hr>
+ <form action="<?php echo static::e(URLROOT); ?>users/login" method="post">
+ <div class="form-group">
+ <label for="email">Email address</label>
+ <input type="email" class="form-control" required name="email" placeholder="Enter email">
+ </div>
+ <div class="form-group">
+ <label for="password">Password</label>
+ <input type="password" class="form-control" required name="password" placeholder="Password">
+ </div>
+ <div class="form-check">
+ <input type="checkbox" class="form-check-input" id="keep">
+ <label class="form-check-label" for="keep">Remember Me</label>
+ </div>
+ <br/>
+ <div class="row">
+ <div class="col">
+ <button type="submit" class="btn btn-primary btn-block">Login</button>
+ </div>
+ <div class="col">
+ <a class="link" href="<?php echo static::e(URLROOT); ?>/users/register"> Don't Have An Account? Register</a>
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+<?php $this->stopSection(); ?>
+<?php if (@$_shouldextend[1]) { echo $this->runChild('include.layout'); } ?>

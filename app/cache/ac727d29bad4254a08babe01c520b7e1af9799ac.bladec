@@ -1,0 +1,32 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'Home Page'); ?>
+
+<?php echo $this->runChild('include.header'); ?>
+
+<?php $this->startSection('content'); ?>
+ <div class="row">
+ <div class="col-lg-8 col-md-10 mx-auto">
+ <?php $__empty_1 = true; foreach($posts as $post): $__empty_1 = false; ?>
+ <div class="post-preview">
+ <a href="<?php echo static::e(URLROOT); ?>posts/post/<?php echo static::e($post->id); ?>">
+ <h2 class="post-title"><?php echo static::e($post->title); ?></h2>
+ <h3 class="post-body"><?php echo substr($post->body, 0, 50); ?></h3>
+ </a>
+ <p class="post-meta"> Posted By
+ <a href="<?php echo static::e(URLROOT); ?>users/info/<?php echo static::e($post->user->id); ?>"><?php echo static::e($post->user->fullname); ?></a>
+ On
+ <?php echo static::e($post->created_at->diffForHumans()); ?>
+
+ </p>
+ </div>
+ <?php endforeach; if ($__empty_1): ?>
+ <h2 style="text-align: center"> No Post Found </h2>
+ <?php endif; ?>
+ </div>
+ </div>
+
+
+<?php $this->stopSection(); ?>
+
+<?php if (@$_shouldextend[1]) { echo $this->runChild('include.layout'); } ?>

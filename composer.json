@@ -1,0 +1,12 @@
+{
+    "require": {
+        "illuminate/database": "^6.10",
+        "eftec/bladeone": "^3.33",
+        "nesbot/carbon": "^2.29"
+    },
+    "autoload": {
+        "classmap": [
+            "app/models"
+        ]
+    }
+}

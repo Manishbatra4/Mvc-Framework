@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Favicon -->
+    <link rel="icon" href="https://www.svgrepo.com/show/147397/pen.svg">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700" rel="stylesheet">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{{ URLROOT.'/css/style.css' }}">
+    <title>{{ SITENAME }} - @yield('title')  </title>
+</head>
+<body>
+
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <a class="navbar-brand" href="<?php echo URLROOT; ?>">
+        <img width="40" height="40" src="https://www.svgrepo.com/show/147397/pen.svg" alt="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item {{ $page_id == 1 ? 'active' : '' }}">
+                <a class="nav-link" href="{{ URLROOT }}">Home</a>
+            </li>
+            <li class="nav-item {{ $page_id == 2 ? 'active' : '' }}">
+                <a class="nav-link" href="{{ URLROOT }}home/authors">Authors</a>
+            </li>
+            <li class="nav-item {{ $page_id == 3 ? 'active' : '' }}">
+                <a class="nav-link" href="{{ URLROOT }}home/about">About</a>
+            </li>
+            @guest
+                <li class="nav-item {{ $page_id == 4 ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ URLROOT }}users/login">Login</a>
+                </li>
+                <li class="nav-item {{ $page_id == 5 ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ URLROOT }}users/register">Sign Up</a>
+                </li>
+            @endguest
+            @auth
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ Auth::user()->fullname }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ URLROOT .'users/info/'. Auth::user()->id }}">My Profile</a>
+                        <a class="dropdown-item" href="{{ URLROOT .'posts/' }}">My Posts</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ URLROOT }}users/logout">Log Out</a>
+                    </div>
+                </li>
+            @endauth
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    @yield('content')
+</div>
+
+<footer class="footer">
+    <div class="container">
+        Copyright © 2019 All Rights Reserved By <span><a href="https://thetechfossil.com">The Tech Fossil</a></span>
+    </div>
+</footer>
+</body>
+<!-- Jquery -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="<?php echo URLROOT ?>/js/main.js"></script>
+</html>

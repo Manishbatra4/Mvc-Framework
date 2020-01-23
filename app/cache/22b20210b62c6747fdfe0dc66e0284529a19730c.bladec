@@ -1,0 +1,28 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title', 'Authors Page'); ?>
+
+<?php echo $this->runChild('include.header'); ?>
+
+<?php $this->startSection('content'); ?>
+ <div class="container">
+ <div class="row">
+ <div class="col-lg-10 col-md-10 mx-auto">
+ <h1 style="text-align: center">Our Authors</h1>
+ <ul class="list-group list-group-flush">
+ <?php $__empty_1 = true; foreach($users as $user): $__empty_1 = false; ?>
+ <li class="list-group-item user-list">
+ <a href="/users/info/<?php echo static::e($user->id); ?>"><?php echo static::e($user->fullname); ?></a>
+ <span style="float: right"><?php echo static::e("User Joined ". $user->created_at->diffForHumans()); ?></span>
+ </li>
+ <?php endforeach; if ($__empty_1): ?>
+ <li> No User Found</li>
+ <?php endif; ?>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+<?php $this->stopSection(); ?>
+
+<?php if (@$_shouldextend[1]) { echo $this->runChild('include.layout'); } ?>
