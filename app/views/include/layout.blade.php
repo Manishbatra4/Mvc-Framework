@@ -26,6 +26,7 @@
 <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
     <a class="navbar-brand" href="<?php echo URLROOT; ?>">
         <img width="40" height="40" src="https://www.svgrepo.com/show/147397/pen.svg" alt="logo">
+        Manish Batra Blog
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
